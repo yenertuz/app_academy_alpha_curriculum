@@ -16,7 +16,7 @@ class Code
 	if self.class.valid_pegs?(p1) == false
 		raise "invalid peg"
 		return 
-	end
+	en
 	@pegs = p1
 	@pegs.map! { |x| x.upcase }
   end
@@ -40,11 +40,15 @@ class Code
   end
 
   def num_exact_matches(p1)
-	(0..p1.length).reduce(0) {|sum, num| self[num] == p1[num] ? sum + 1 : sum }
+	(0...p1.length).reduce(0) {|sum, num| p1[num] == @pegs[num] ? sum + 1 : sum }
   end
 
   def num_near_matches(p1)
-	p1.pegs.reduce(0) {|sum, num| self.pegs.include?(num) ? sum + 1 : sum } - self.num_exact_matches(p1)
+	p1.pegs.reduce(0) {|sum, num| @pegs.include?(num) ? sum + 1 : sum } - self.num_exact_matches(p1)
+  end
+
+  def ==(p1)
+	@pegs == p1.pegs
   end
 
 end
