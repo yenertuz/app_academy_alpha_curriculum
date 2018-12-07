@@ -23,7 +23,7 @@ class Board
 	a = self[p1]
 	if a == :S 
 		@grid[p1[0]][p1[1]] = :H
-		puts "you sunk my battleship!"
+		puts "you sunk my battleship!" # using print here instead of puts will cause an error
 		return true 
 	else 
 		self[p1] = :X
