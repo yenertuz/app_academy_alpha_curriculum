@@ -1,1 +1,1 @@
-# app_academy_ruby
+# app_academy_alpha_curriculum
